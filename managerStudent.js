@@ -1,10 +1,8 @@
 let listStudent = [];
-let listSTT= [];
-function addNewStudent(newStudent, newSTT) {
+function addNewStudent(newStudent) {
     //Thêm mới hv vào mảng
-    if (newStudent.length>2 && newSTT>5){
+    if (newStudent.length>=2){
         listStudent.push(newStudent);
-        listSTT.push(newSTT)
         return true;
     }
     else {return false};
@@ -13,9 +11,7 @@ function addNewStudent(newStudent, newSTT) {
 
 function createNewStudent() {
     let newStudent = document.getElementById("newStudent").value;
-    let newStt = document.getElementById("newSTT").value;
-    if(addNewStudent(newStudent, newStt)){
-        alert("Thêm mới thành công");
+    if(addNewStudent(newStudent)){
         document.getElementById("newStudent").value = "";
     }
     else {
@@ -27,9 +23,18 @@ function createNewStudent() {
 
 function showListSudent() {
     let data = "<table border='2px'>";
+    data+="<tr><td>STT</td><td>Họ và tên</td><td>Edit</td><td>Delete</td></tr>"
     for (let i= 0; i<listStudent.length;i++){
-        data+= "<tr><td>" + listStudent[i]+"</td></tr>";
+        data+= "<tr>" +
+            '<td>'+(i+1)+'</td>'+
+            '<td>' + listStudent[i]+'</td>'
+            +'<td><button onclick="editStudent('+i+')">Edit</button></td>'
+            +'<td><button>Delete</button></td>'+
+            '</tr>';
     }
     data+="</table>";
     document.getElementById("listStudent").innerHTML= data;
+}
+function editStudent(index) {
+    prompt("Đây là chức năng sửa", listStudent[index]);
 }
