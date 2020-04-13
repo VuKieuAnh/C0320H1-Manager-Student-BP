@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sum</title>
+</head>
+<body>
+<script>
+    let a = [[5,6,8,4,2],
+        [3,0,-12,0,2],
+        [-45,12,-10,9,1],
+        [22,10,-1,6,3],
+        [6,6,41,0,1000000]];
+    function sumMainDiagonal(arr) {
+        let sum =0;
+        for (let i =0; i<arr.length;i++){
+            sum+= arr[i][i];
+        }
+        return sum;
+    }
+    if(sumMainDiagonal(a)>0){
+        document.write("Tổng đường chéo chính là số dương")
+    }
+    else {
+        document.write("Tổng đường chéo chính là số âm")
+    }
+</script>
+</body>
+</html>
